@@ -14,6 +14,33 @@ ROOT = Path(__file__).resolve().parent.parent
 st.set_page_config(page_title="upay সুরক্ষা+", page_icon="🛡️", layout="wide",
                    initial_sidebar_state="collapsed")
 
+# --- Single-service deployment (e.g. Streamlit Community Cloud) ---------------------------
+# If UPAY_API is not set and no backend answers on localhost, start the FastAPI backend
+# as a child process once per server. Local two-terminal usage is unchanged.
+import subprocess, sys, time
+
+@st.cache_resource(show_spinner=False)
+def _ensure_api():
+    if os.environ.get("UPAY_API"):
+        return "external"
+    try:
+        if requests.get(f"{API}/health", timeout=1).ok:
+            return "already-running"
+    except Exception:
+        pass
+    subprocess.Popen([sys.executable, "-m", "uvicorn", "api.main:app",
+                      "--host", "127.0.0.1", "--port", "8000"], cwd=str(ROOT))
+    for _ in range(120):
+        try:
+            if requests.get(f"{API}/health", timeout=1).ok:
+                return "started"
+        except Exception:
+            time.sleep(1)
+    return "failed"
+
+with st.spinner("Starting backend..."):
+    _ensure_api()
+
 # ===================================================================== THEME
 # Brand: Yellow = primary / header / key CTA, Blue = secondary / nav / text-buttons,
 # White = cards, Dark = text. Green / Amber / Red are used ONLY for LOW / MEDIUM / HIGH risk.
