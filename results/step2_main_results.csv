@@ -1,0 +1,9 @@
+setup,precision,recall,f1,pr_auc,false_alarm_rate_%,flags_that_are_false_%,legit_tx_warned,alerts_per_10k_tx,TP,FP,FN,TN,note
+1a. Rules only (basic: R1-R3),0.352,0.668,0.461,0.296,3.63,64.8,2231.0,544.2,1211.0,2231.0,601.0,59209.0,3 classic rules; score = #rules fired
+1b. Rules only (extended: R1-R4),0.377,0.801,0.513,0.381,3.9,62.3,2398.0,608.7,1452.0,2398.0,360.0,59042.0,adds pass-through rule; score = #rules fired
+"2. ML only (LightGBM, threshold 0.30)",0.566,0.859,0.682,0.687,1.95,43.4,1196.0,435.2,1557.0,1196.0,255.0,60244.0,current operating point
+3a. ML + tiers: any warning (score >= 0.15),0.389,0.911,0.546,0.687,4.21,61.1,2587.0,669.9,1650.0,2587.0,162.0,58853.0,MEDIUM + HIGH -> customer sees a warning
+3b. ML + tiers: HIGH only (score >= 0.3),0.566,0.859,0.682,0.687,1.95,43.4,1196.0,435.2,1557.0,1196.0,255.0,60244.0,-> analyst queue; identical to row 2 by construction
+3c. ML + tiers: MEDIUM only (0.15 to <0.3),0.063,0.051,0.056,0.687,2.26,93.7,1391.0,234.6,93.0,1391.0,1719.0,60049.0,extra alerts the MEDIUM tier adds
+4. Integrated: ML + agent-liquidity signal,,,,,,,,,,,,,NOT APPLICABLE in this data - see note A
+5. (extra) Hybrid: ML OR rules R1-R4,0.395,0.901,0.549,,4.07,60.5,2498.0,652.9,1632.0,2498.0,180.0,58942.0,my addition; replaces the N/A integrated row

@@ -1,0 +1,62 @@
+{
+  "training_history": {
+    "rows_compared": 419643,
+    "features": {
+      "amount_ratio": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      },
+      "is_new_recipient": {
+        "mismatches": 2,
+        "match_rate": 0.999995
+      },
+      "tx_last_10min": {
+        "mismatches": 156,
+        "match_rate": 0.999628
+      },
+      "just_received_money": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      },
+      "hour": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      },
+      "is_night": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      }
+    },
+    "rows_with_any_mismatch": 156
+  },
+  "validation_history": {
+    "rows_compared": 347583,
+    "features": {
+      "amount_ratio": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      },
+      "is_new_recipient": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      },
+      "tx_last_10min": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      },
+      "just_received_money": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      },
+      "hour": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      },
+      "is_night": {
+        "mismatches": 0,
+        "match_rate": 1.0
+      }
+    },
+    "rows_with_any_mismatch": 0
+  }
+}

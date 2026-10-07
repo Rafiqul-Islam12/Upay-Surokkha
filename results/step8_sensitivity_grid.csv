@@ -1,0 +1,68 @@
+grid,x,y,net_monthly_benefit_bdt
+recall x false-alarm rate (medium),recall=0.1,far=0.005,-393088
+recall x false-alarm rate (medium),recall=0.18,far=0.005,610017
+recall x false-alarm rate (medium),recall=0.3,far=0.005,2114674
+recall x false-alarm rate (medium),recall=0.447,far=0.005,3957879
+recall x false-alarm rate (medium),recall=0.6,far=0.005,5876317
+recall x false-alarm rate (medium),recall=0.75,far=0.005,7757139
+recall x false-alarm rate (medium),recall=0.859,far=0.005,9123869
+recall x false-alarm rate (medium),recall=0.1,far=0.01,-1540058
+recall x false-alarm rate (medium),recall=0.18,far=0.01,-536953
+recall x false-alarm rate (medium),recall=0.3,far=0.01,967705
+recall x false-alarm rate (medium),recall=0.447,far=0.01,2810910
+recall x false-alarm rate (medium),recall=0.6,far=0.01,4729348
+recall x false-alarm rate (medium),recall=0.75,far=0.01,6610170
+recall x false-alarm rate (medium),recall=0.859,far=0.01,7976900
+recall x false-alarm rate (medium),recall=0.1,far=0.0195,-3719299
+recall x false-alarm rate (medium),recall=0.18,far=0.0195,-2716194
+recall x false-alarm rate (medium),recall=0.3,far=0.0195,-1211537
+recall x false-alarm rate (medium),recall=0.447,far=0.0195,631668
+recall x false-alarm rate (medium),recall=0.6,far=0.0195,2550106
+recall x false-alarm rate (medium),recall=0.75,far=0.0195,4430928
+recall x false-alarm rate (medium),recall=0.859,far=0.0195,5797658
+recall x false-alarm rate (medium),recall=0.1,far=0.0224,-4384541
+recall x false-alarm rate (medium),recall=0.18,far=0.0224,-3381437
+recall x false-alarm rate (medium),recall=0.3,far=0.0224,-1876779
+recall x false-alarm rate (medium),recall=0.447,far=0.0224,-33574
+recall x false-alarm rate (medium),recall=0.6,far=0.0224,1884864
+recall x false-alarm rate (medium),recall=0.75,far=0.0224,3765686
+recall x false-alarm rate (medium),recall=0.859,far=0.0224,5132416
+recall x false-alarm rate (medium),recall=0.1,far=0.04,-8421873
+recall x false-alarm rate (medium),recall=0.18,far=0.04,-7418769
+recall x false-alarm rate (medium),recall=0.3,far=0.04,-5914111
+recall x false-alarm rate (medium),recall=0.447,far=0.04,-4070906
+recall x false-alarm rate (medium),recall=0.6,far=0.04,-2152468
+recall x false-alarm rate (medium),recall=0.75,far=0.04,-271646
+recall x false-alarm rate (medium),recall=0.859,far=0.04,1095084
+recall x false-alarm rate (medium),recall=0.1,far=0.0677,-14776084
+recall x false-alarm rate (medium),recall=0.18,far=0.0677,-13772979
+recall x false-alarm rate (medium),recall=0.3,far=0.0677,-12268321
+recall x false-alarm rate (medium),recall=0.447,far=0.0677,-10425116
+recall x false-alarm rate (medium),recall=0.6,far=0.0677,-8506678
+recall x false-alarm rate (medium),recall=0.75,far=0.0677,-6625856
+recall x false-alarm rate (medium),recall=0.859,far=0.0677,-5259126
+scam rate x average loss (medium),scam_rate=0.0001,avg_loss=2000,-5022768
+scam rate x average loss (medium),scam_rate=0.0002,avg_loss=2000,-4405571
+scam rate x average loss (medium),scam_rate=0.0003,avg_loss=2000,-3788374
+scam rate x average loss (medium),scam_rate=0.0006,avg_loss=2000,-1936783
+scam rate x average loss (medium),scam_rate=0.001,avg_loss=2000,532004
+scam rate x average loss (medium),scam_rate=0.0001,avg_loss=4000,-4396968
+scam rate x average loss (medium),scam_rate=0.0002,avg_loss=4000,-3153971
+scam rate x average loss (medium),scam_rate=0.0003,avg_loss=4000,-1910974
+scam rate x average loss (medium),scam_rate=0.0006,avg_loss=4000,1818017
+scam rate x average loss (medium),scam_rate=0.001,avg_loss=4000,6790004
+scam rate x average loss (medium),scam_rate=0.0001,avg_loss=6000,-3771168
+scam rate x average loss (medium),scam_rate=0.0002,avg_loss=6000,-1902371
+scam rate x average loss (medium),scam_rate=0.0003,avg_loss=6000,-33574
+scam rate x average loss (medium),scam_rate=0.0006,avg_loss=6000,5572817
+scam rate x average loss (medium),scam_rate=0.001,avg_loss=6000,13048004
+scam rate x average loss (medium),scam_rate=0.0001,avg_loss=10000,-2519568
+scam rate x average loss (medium),scam_rate=0.0002,avg_loss=10000,600829
+scam rate x average loss (medium),scam_rate=0.0003,avg_loss=10000,3721226
+scam rate x average loss (medium),scam_rate=0.0006,avg_loss=10000,13082417
+scam rate x average loss (medium),scam_rate=0.001,avg_loss=10000,25564004
+scam rate x average loss (medium),scam_rate=0.0001,avg_loss=15000,-955068
+scam rate x average loss (medium),scam_rate=0.0002,avg_loss=15000,3729829
+scam rate x average loss (medium),scam_rate=0.0003,avg_loss=15000,8414726
+scam rate x average loss (medium),scam_rate=0.0006,avg_loss=15000,22469417
+scam rate x average loss (medium),scam_rate=0.001,avg_loss=15000,41209004

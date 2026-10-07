@@ -1,0 +1,5 @@
+pattern,n_scam_tx,Rules R1-R3,Rules R1-R4,ML @0.30,ML @0.15 (warn),Hybrid ML OR R1-R4
+new_recipient_big,347,1.0,1.0,0.79,0.983,1.0
+night_tx,285,0.996,0.996,0.996,0.996,0.996
+rapid_burst,861,0.582,0.583,0.79,0.82,0.792
+refund_scam,319,0.248,1.0,1.0,1.0,1.0

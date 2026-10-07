@@ -1,0 +1,9 @@
+scenario,scam_share,recall,recall_95ci,precision,precision_if_same_prevalence,false_alarm_rate,auc,pr_auc,best_recall_at_ref_far_(diagnostic),incident_recall,rules_recall,rules_precision,rules_far
+Step 2 test split (reference),2.86%,85.9%,84.2%-87.5%,56.6%,56.6%,1.95%,0.981,0.687,85.9%,n/a,80.1%,37.7%,3.90%
+"Control (same world, new seed)",2.89%,85.8%,85.1%-86.5%,53.2%,53.0%,2.24%,0.980,0.667,84.2%,94.3%,79.3%,34.2%,4.53%
+Legit behaviour shift,2.90%,86.1%,85.6%-86.6%,27.5%,27.2%,6.80%,0.954,0.286,0.0%,94.0%,80.3%,15.4%,13.16%
+5 novel scam typologies,2.98%,7.8%,7.3%-8.3%,9.5%,9.1%,2.28%,0.521,0.061,7.7%,11.0%,11.5%,7.2%,4.57%
+"Evasion (known scams, adapted)",2.92%,44.7%,43.7%-45.6%,37.5%,37.0%,2.24%,0.792,0.388,44.7%,32.0%,20.6%,12.0%,4.52%
+Volume / mix shift,1.46%,86.3%,85.7%-86.9%,15.3%,26.4%,7.09%,0.943,0.123,0.0%,94.0%,80.6%,9.2%,11.75%
+Scam surge (3x volume),8.04%,86.1%,85.7%-86.5%,75.7%,51.3%,2.42%,0.979,0.824,80.4%,94.4%,79.7%,59.3%,4.79%
+EXTERNAL VALIDATION (all shifts),1.22%,18.0%,17.1%-18.9%,3.2%,7.3%,6.77%,0.558,0.021,0.0%,27.1%,20.2%,1.9%,13.12%

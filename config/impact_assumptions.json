@@ -1,0 +1,534 @@
+{
+ "_comment": "Editable assumptions for Step 8. kind=ASSUMPTION means invented placeholder; MEASURED_ON_SYNTHETIC means our own result on synthetic data. Neither is real upay data. Edit values here, then run: python src/impact_model.py",
+ "assumptions": [
+  {
+   "id": "V1",
+   "group": "Volume",
+   "name": "Monthly transactions scored by ScamShield (in-scope P2P sends)",
+   "unit": "transactions / month",
+   "bad": 10000000,
+   "medium": 10000000,
+   "good": 10000000,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder, held equal across scenarios so scenarios isolate model and cost effects. Replace with upay's real monthly P2P send count.",
+   "sources": [
+    "S1",
+    "S2"
+   ]
+  },
+  {
+   "id": "R1",
+   "group": "Scam exposure",
+   "name": "Scam rate (share of scored transactions that are loss-causing scams)",
+   "unit": "fraction",
+   "bad": 0.0001,
+   "medium": 0.0003,
+   "good": 0.0006,
+   "kind": "ASSUMPTION",
+   "basis": "NOT the 2.9% of our synthetic data (that is injected by construction). Real rates are far lower; bad = 0.01%, medium = 0.03%, good = 0.06% are placeholders.",
+   "sources": [
+    "S3",
+    "S4",
+    "S5",
+    "S6"
+   ]
+  },
+  {
+   "id": "R2",
+   "group": "Scam exposure",
+   "name": "Average loss per scam transaction",
+   "unit": "BDT",
+   "bad": 3000,
+   "medium": 6000,
+   "good": 10000,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder. Compute the average P2P ticket from Bangladesh Bank MFS tables (value / number) and compare with victim-reported losses.",
+   "sources": [
+    "S1",
+    "S3",
+    "S4"
+   ]
+  },
+  {
+   "id": "R3",
+   "group": "Model performance",
+   "name": "Recall (share of scam transactions flagged)",
+   "unit": "fraction",
+   "bad": 0.18,
+   "medium": 0.447,
+   "good": 0.859,
+   "kind": "MEASURED_ON_SYNTHETIC",
+   "basis": "Our own Step 3 numbers on synthetic data: good = Step 2 test split (85.9%), medium = 'Evasion, known scams adapted' (44.7%), bad = 'External validation, all shifts' (18.0%). Real-world recall is unknown.",
+   "sources": [
+    "S7"
+   ]
+  },
+  {
+   "id": "R4",
+   "group": "Model performance",
+   "name": "Intervention success (share of flagged scams where the warning/hold really stops the loss)",
+   "unit": "fraction",
+   "bad": 0.5,
+   "medium": 0.7,
+   "good": 0.85,
+   "kind": "ASSUMPTION",
+   "basis": "Not measured. Customer may ignore a warning; scammer may re-route. Set it to 100% to get the literal 'volume x rate x loss x recall' formula.",
+   "sources": [
+    "S8",
+    "S5"
+   ]
+  },
+  {
+   "id": "F1",
+   "group": "False alarms",
+   "name": "False-alarm rate (share of legitimate transactions flagged)",
+   "unit": "fraction",
+   "bad": 0.0677,
+   "medium": 0.0224,
+   "good": 0.0195,
+   "kind": "MEASURED_ON_SYNTHETIC",
+   "basis": "Own Step 3 numbers: good = Step 2 test split (1.95%), medium = Evasion row (2.24%), bad = External validation (6.77%).",
+   "sources": [
+    "S7"
+   ]
+  },
+  {
+   "id": "A1",
+   "group": "Analyst time",
+   "name": "Share of flags reviewed by a human analyst",
+   "unit": "fraction",
+   "bad": 1.0,
+   "medium": 1.0,
+   "good": 1.0,
+   "kind": "ASSUMPTION",
+   "basis": "Design rule of the prototype (HIGH cases go to an analyst). Lowering it models triage, but then check the intervention success input.",
+   "sources": [
+    "S9"
+   ]
+  },
+  {
+   "id": "A2",
+   "group": "Analyst time",
+   "name": "Review time per flagged case",
+   "unit": "minutes",
+   "bad": 6,
+   "medium": 4,
+   "good": 3,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder. Time a real analyst on 30-50 cases during the pilot.",
+   "sources": [
+    "S9"
+   ]
+  },
+  {
+   "id": "A3",
+   "group": "Analyst time",
+   "name": "Fully loaded monthly cost of one analyst",
+   "unit": "BDT / month",
+   "bad": 45000,
+   "medium": 35000,
+   "good": 30000,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder. Use upay HR figure; public check: job-portal salary surveys and BBS wage statistics.",
+   "sources": [
+    "S10",
+    "S11"
+   ]
+  },
+  {
+   "id": "A4",
+   "group": "Analyst time",
+   "name": "Paid hours per analyst per month",
+   "unit": "hours",
+   "bad": 176,
+   "medium": 176,
+   "good": 176,
+   "kind": "ASSUMPTION",
+   "basis": "22 working days x 8 hours.",
+   "sources": [
+    "S10"
+   ]
+  },
+  {
+   "id": "A5",
+   "group": "Analyst time",
+   "name": "Productive share of paid time (utilization)",
+   "unit": "fraction",
+   "bad": 0.65,
+   "medium": 0.65,
+   "good": 0.65,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder; breaks, meetings, idle time between cases.",
+   "sources": [
+    "S9"
+   ]
+  },
+  {
+   "id": "F2",
+   "group": "False-alarm handling",
+   "name": "Notification cost per flag (SMS / push)",
+   "unit": "BDT",
+   "bad": 0.35,
+   "medium": 0.35,
+   "good": 0.35,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder; replace with upay's SMS gateway cost.",
+   "sources": [
+    "S12"
+   ]
+  },
+  {
+   "id": "F3",
+   "group": "False-alarm handling",
+   "name": "Share of false alarms that contact customer support",
+   "unit": "fraction",
+   "bad": 0.1,
+   "medium": 0.05,
+   "good": 0.03,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder; measure in the pilot from call-centre tags.",
+   "sources": [
+    "S9"
+   ]
+  },
+  {
+   "id": "F4",
+   "group": "False-alarm handling",
+   "name": "Cost of one support contact",
+   "unit": "BDT",
+   "bad": 40,
+   "medium": 30,
+   "good": 25,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder; use upay call-centre cost per contact.",
+   "sources": [
+    "S10",
+    "S9"
+   ]
+  },
+  {
+   "id": "C1",
+   "group": "Customer friction",
+   "name": "Abandonment rate after a false alarm (customer cancels the transfer)",
+   "unit": "fraction",
+   "bad": 0.15,
+   "medium": 0.08,
+   "good": 0.05,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder; measure in the pilot (cancelled / warned legitimate transfers).",
+   "sources": [
+    "S9"
+   ]
+  },
+  {
+   "id": "C2",
+   "group": "Customer friction",
+   "name": "Revenue lost per abandoned transaction",
+   "unit": "BDT",
+   "bad": 8,
+   "medium": 5,
+   "good": 3,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder; use upay's send-money fee / margin per transaction.",
+   "sources": [
+    "S12",
+    "S13"
+   ]
+  },
+  {
+   "id": "C3",
+   "group": "Customer friction",
+   "name": "Churn probability per false alarm",
+   "unit": "fraction",
+   "bad": 0.002,
+   "medium": 0.0005,
+   "good": 0.0002,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder; measure by comparing 90-day retention of warned vs unwarned legitimate customers.",
+   "sources": [
+    "S9"
+   ]
+  },
+  {
+   "id": "C4",
+   "group": "Customer friction",
+   "name": "Annual margin of an active customer",
+   "unit": "BDT / year",
+   "bad": 1000,
+   "medium": 600,
+   "good": 400,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder; use upay's ARPU/margin.",
+   "sources": [
+    "S2",
+    "S13"
+   ]
+  },
+  {
+   "id": "K1",
+   "group": "Investment",
+   "name": "One-time cost (build, integration, security review, training)",
+   "unit": "BDT",
+   "bad": 20000000,
+   "medium": 12000000,
+   "good": 8000000,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder, no upay quote exists.",
+   "sources": [
+    "S10"
+   ]
+  },
+  {
+   "id": "K2",
+   "group": "Investment",
+   "name": "Monthly run cost (hosting, monitoring, retraining, support)",
+   "unit": "BDT / month",
+   "bad": 800000,
+   "medium": 500000,
+   "good": 350000,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder.",
+   "sources": [
+    "S10"
+   ]
+  },
+  {
+   "id": "H1",
+   "group": "Investment",
+   "name": "ROI horizon",
+   "unit": "months",
+   "bad": 12,
+   "medium": 12,
+   "good": 12,
+   "kind": "ASSUMPTION",
+   "basis": "Chosen by the team; ROI = (net benefit x horizon - one-time cost) / one-time cost.",
+   "sources": []
+  }
+ ],
+ "sources": {
+  "S1": {
+   "title": "Bangladesh Bank, Mobile Financial Services (MFS) Statistics: Transaction Statistics",
+   "url": "https://www.bb.org.bd/econdata/fin_digitalfstat/tab9.pdf",
+   "use": "Industry transaction counts and values; derive average ticket size and a plausible upay share. Monthly counts are in the hundreds of millions industry-wide."
+  },
+  "S2": {
+   "title": "upay / UCB annual report and Bangladesh Bank MFS provider-wise statistics",
+   "url": "https://www.bb.org.bd (search 'MFS statistics')",
+   "use": "Upay's own volume, active customers, revenue. Prefer the company's own internal figure."
+  },
+  "S3": {
+   "title": "Bangladesh Financial Intelligence Unit (BFIU) annual report",
+   "url": "https://www.bfiu.org.bd",
+   "use": "Suspicious-transaction reports and typologies involving MFS; verify the current edition."
+  },
+  "S4": {
+   "title": "Bangladesh Police / CID cyber-crime statistics and the National Cyber Security Agency",
+   "url": "https://www.police.gov.bd (verify current page)",
+   "use": "Reported MFS-related fraud cases and losses; reported cases understate true incidence."
+  },
+  "S5": {
+   "title": "UK Finance, Annual Fraud Report (authorised push payment scams)",
+   "url": "https://www.ukfinance.org.uk",
+   "use": "International benchmark for APP-scam counts, values and share recovered; use only as a cross-check, not as a Bangladesh figure."
+  },
+  "S6": {
+   "title": "GSMA, State of the Industry Report on Mobile Money",
+   "url": "https://www.gsma.com/sotir",
+   "use": "Mobile-money fraud and consumer-protection context across markets."
+  },
+  "S7": {
+   "title": "This project: results/step2_main_results.csv, results/step3_scenarios.csv, models/metrics.json",
+   "url": "(in repository)",
+   "use": "Recall and false-alarm rate. Synthetic data; say so whenever you cite them."
+  },
+  "S8": {
+   "title": "UK Payment Systems Regulator, APP scams performance data",
+   "url": "https://www.psr.org.uk",
+   "use": "Share of APP-scam losses recovered or reimbursed; indicates how often a flagged payment can really be stopped."
+  },
+  "S9": {
+   "title": "Your own pilot measurements (time-and-motion study, call-centre tags, cancellation logs, retention)",
+   "url": "(internal)",
+   "use": "The only credible source for analyst minutes, support contacts, abandonment and churn."
+  },
+  "S10": {
+   "title": "Bangladesh Bureau of Statistics (BBS) wage and labour statistics; job-portal salary surveys",
+   "url": "https://bbs.gov.bd",
+   "use": "Salary level for analysts and call-centre staff; cross-check against upay HR."
+  },
+  "S11": {
+   "title": "Bangladesh Bank, Monthly Economic Trends / interest-rate statistics",
+   "url": "https://www.bb.org.bd",
+   "use": "Cost of funds for idle-cash valuation (Agent Copilot calculator)."
+  },
+  "S12": {
+   "title": "BTRC (telecom regulator) SMS tariff / your SMS gateway invoice",
+   "url": "https://www.btrc.gov.bd",
+   "use": "Cost per SMS."
+  },
+  "S13": {
+   "title": "upay official tariff page / app charges and Bangladesh Bank circulars on MFS charges",
+   "url": "https://www.upaybd.com (verify current tariff)",
+   "use": "Send-money and cash-out fee schedule. A news report states Bangladesh Bank sets no fixed cash-out cap, so the provider's own tariff is the authority."
+  },
+  "S14": {
+   "title": "Helix Institute of Digital Finance / InterMedia agent-network surveys (Bangladesh)",
+   "url": "https://www.helix-institute.com (verify availability)",
+   "use": "Agent liquidity problems, stock-out frequency, agent commission levels."
+  },
+  "S15": {
+   "title": "Kohavi, Tang, Xu, Trustworthy Online Controlled Experiments (Cambridge University Press, 2020)",
+   "url": "(book)",
+   "use": "A/B test design, sample size, guardrail metrics."
+  },
+  "S16": {
+   "title": "Duflo, Glennerster, Kremer, Using Randomization in Development Economics Research: A Toolkit (2007)",
+   "url": "https://economics.mit.edu (search the title)",
+   "use": "Randomization units, stratification, spillovers, power."
+  },
+  "S17": {
+   "title": "Deng, Xu, Kohavi, Walker, Improving the Sensitivity of Online Controlled Experiments by Utilizing Pre-Experiment Data (CUPED, WSDM 2013)",
+   "url": "(paper)",
+   "use": "Variance reduction with pre-period data."
+  }
+ },
+ "ab_pilot": [
+  {
+   "id": "B1",
+   "name": "Significance level alpha (two-sided)",
+   "unit": "fraction",
+   "value": 0.05,
+   "kind": "CONVENTION",
+   "basis": "Standard experiment convention; change only if the team pre-registers a different value.",
+   "sources": [
+    "S15"
+   ]
+  },
+  {
+   "id": "B2",
+   "name": "Statistical power (1 - beta)",
+   "unit": "fraction",
+   "value": 0.8,
+   "kind": "CONVENTION",
+   "basis": "Standard experiment convention.",
+   "sources": [
+    "S15",
+    "S16"
+   ]
+  },
+  {
+   "id": "B3",
+   "name": "Std. deviation of fees paid per eligible customer-month",
+   "unit": "BDT",
+   "value": 19.0,
+   "kind": "MEASURED_ON_SYNTHETIC",
+   "basis": "Computed on our synthetic data (std of monthly fee on cash-outs under BDT 1,500, using the ASSUMED 1.4% rate). Replace with the std from 8-12 weeks of real pre-period data.",
+   "sources": [
+    "S9",
+    "S15"
+   ]
+  },
+  {
+   "id": "B4",
+   "name": "Minimum detectable effect (saving per customer-month)",
+   "unit": "BDT",
+   "value": 2.0,
+   "kind": "ASSUMPTION",
+   "basis": "Smallest saving worth acting on. Choose with the business team; smaller MDE needs many more customers.",
+   "sources": [
+    "S13",
+    "S15"
+   ]
+  },
+  {
+   "id": "B5",
+   "name": "Correlation between pre-period and pilot-period fees (for CUPED)",
+   "unit": "fraction",
+   "value": 0.5,
+   "kind": "ASSUMPTION",
+   "basis": "Measure on real pre-period data. Set to 0 to disable variance reduction.",
+   "sources": [
+    "S17"
+   ]
+  },
+  {
+   "id": "B6",
+   "name": "Expected attrition / missing data",
+   "unit": "fraction",
+   "value": 0.1,
+   "kind": "ASSUMPTION",
+   "basis": "Customers who become inactive or unreachable during the pilot.",
+   "sources": [
+    "S16"
+   ]
+  },
+  {
+   "id": "B7",
+   "name": "Eligible customer base available for the pilot",
+   "unit": "customers",
+   "value": 50000,
+   "kind": "ASSUMPTION",
+   "basis": "Replace with the real count of customers having at least 2 small cash-outs in the pre-period.",
+   "sources": [
+    "S2",
+    "S9"
+   ]
+  },
+  {
+   "id": "B8",
+   "name": "Pilot duration",
+   "unit": "weeks",
+   "value": 8,
+   "kind": "ASSUMPTION",
+   "basis": "At least two salary-week cycles; cash-out behaviour is strongly calendar-dependent.",
+   "sources": [
+    "S16"
+   ]
+  },
+  {
+   "id": "B9",
+   "name": "Cash-out fee rate (customer pays at agent)",
+   "unit": "fraction of amount",
+   "value": 0.014,
+   "kind": "ASSUMPTION",
+   "basis": "Same prototype assumption as src/cashout_saver.py; a 2021 press report quoted upay at 1.4% for USSD agent cash-out. NOT confirmed as the current tariff.",
+   "sources": [
+    "S13"
+   ]
+  },
+  {
+   "id": "B10",
+   "name": "Customer fee on the digital alternative (merchant payment)",
+   "unit": "fraction of amount",
+   "value": 0.0,
+   "kind": "ASSUMPTION",
+   "basis": "Merchant payments are often free to the payer; check the tariff.",
+   "sources": [
+    "S13"
+   ]
+  },
+  {
+   "id": "B11",
+   "name": "Merchant discount rate earned by upay on migrated value",
+   "unit": "fraction of amount",
+   "value": 0.005,
+   "kind": "ASSUMPTION",
+   "basis": "Placeholder; use upay's merchant pricing.",
+   "sources": [
+    "S2",
+    "S13"
+   ]
+  },
+  {
+   "id": "B12",
+   "name": "Small cash-out limit defining eligible cash-outs",
+   "unit": "BDT",
+   "value": 1500,
+   "kind": "ASSUMPTION",
+   "basis": "Equals SMALL_LIMIT in src/cashout_saver.py.",
+   "sources": [
+    "S13"
+   ]
+  }
+ ]
+}

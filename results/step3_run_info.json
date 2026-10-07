@@ -1,0 +1,22 @@
+{
+  "threshold": 0.30000000000000004,
+  "model_sha256": "2ba31349ce0473a942da68e660130b219ae0debad31c9e5c8f586f79325397a4",
+  "seeds": [
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "in_distribution_prevalence": 0.02864731549990514,
+  "in_distribution_far_reference": 0.019466145833333334,
+  "scenarios": {
+    "control_train_like": "Control: training-like world and the 4 known typologies, fresh seed/customers. Should match the Step 2 test numbers; if not, the harness is wrong.",
+    "environment_only": "Legit behaviour changes (amounts, hours, volume, contacts, legit bursts and pass-through); scam tactics unchanged (4 known typologies).",
+    "novel_typologies_only": "Training-like legit world, but ONLY the 5 new scam typologies.",
+    "tactic_evasion": "Training-like legit world; the 4 known typologies with adapted tactics (smaller amounts, evening not night, slower bursts, delayed refunds).",
+    "volume_mix_shift": "Legit volume up (heavier users, more merchant/bill traffic, more honest bursts); scam count unchanged so prevalence halves.",
+    "scam_surge": "Campaign surge: same world as control but 3x the scam volume (prevalence up).",
+    "external_validation": "MAIN external set: shifted legit world + 20% known / 80% novel typologies, lower prevalence (1.2%)."
+  }
+}

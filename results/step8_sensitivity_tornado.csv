@@ -1,0 +1,20 @@
+id,assumption,base_value,net_at_minus_25pct,net_at_plus_25pct,swing_bdt,base_net
+R2,Average loss per scam transaction,6000,-1441624,1374476,2816100,-33574
+R4,Intervention success (share of flagged scams where the warning/hold really stops the loss),0.7,-1441624,1374476,2816100,-33574
+R1,Scam rate (share of scored transactions that are loss-causing scams),0.0003,-1435172,1368024,2803195,-33574
+R3,Recall (share of scam transactions flagged),0.447,-1434786,1367638,2802424,-33574
+F1,False-alarm rate (share of legitimate transactions flagged),0.0224,1251032,-1318180,2569211,-33574
+A5,Productive share of paid time (utilization),0.65,-1565156,885375,2450531,-33574
+A2,Review time per flagged case,4,1115112,-1182260,2297373,-33574
+A3,Fully loaded monthly cost of one analyst,35000,1115112,-1182260,2297373,-33574
+A1,Share of flags reviewed by a human analyst,1.0,1115112,-33574,1148686,-33574
+K2,"Monthly run cost (hosting, monitoring, retraining, support)",500000,91426,-158574,250000,-33574
+V1,Monthly transactions scored by ScamShield (in-scope P2P sends),10000000,-150180,83033,233213,-33574
+F3,Share of false alarms that contact customer support,0.05,50401,-117549,167950,-33574
+F4,Cost of one support contact,30,50401,-117549,167950,-33574
+C1,Abandonment rate after a false alarm (customer cancels the transfer),0.08,-11181,-55967,44787,-33574
+C2,Revenue lost per abandoned transaction,5,-11181,-55967,44787,-33574
+F2,Notification cost per flag (SMS / push),0.35,-13980,-53168,39188,-33574
+C3,Churn probability per false alarm,0.0005,-16779,-50369,33590,-33574
+C4,Annual margin of an active customer,600,-16779,-50369,33590,-33574
+K1,"One-time cost (build, integration, security review, training)",12000000,-33574,-33574,0,-33574

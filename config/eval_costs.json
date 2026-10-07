@@ -1,0 +1,10 @@
+{
+  "_comment": "ALL VALUES ARE ASSUMPTIONS for the prototype, not upay figures. Replace with real numbers before claiming ROI.",
+  "false_alarm_cost_bdt": 20,
+  "false_alarm_cost_note": "ASSUMPTION: cost of one false alarm = customer friction + analyst/review time. Placeholder; see sensitivity table.",
+  "missed_scam_cost": "actual BDT amount of each missed scam transaction (taken from data, assumes the money is not recovered)",
+  "recovery_rate_if_missed": 0.0,
+  "thresholds": {"strict": 0.15, "balanced": 0.30, "lenient": 0.33},
+  "threshold_note": "strict = flag more (lower cut-off). balanced = current model threshold (chosen on validation). lenient = flag less (0.33 sits just under the model's top score plateau; 0.50 would flag nothing because the model never scores above ~0.37).",
+  "fp_cost_sensitivity_bdt": [5, 20, 100, 500, 1000]
+}

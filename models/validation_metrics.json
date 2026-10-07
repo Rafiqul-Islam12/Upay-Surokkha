@@ -1,0 +1,112 @@
+{
+  "threshold": 0.3,
+  "seeds_per_scenario": 5,
+  "in_distribution": {
+    "recall": 0.8593,
+    "precision": 0.5656,
+    "far": 0.0195,
+    "auc": 0.9815,
+    "pr_auc": 0.6868
+  },
+  "scenarios": {
+    "control_train_like": {
+      "title": "Control (same world, new seed)",
+      "description": "Control: training-like world and the 4 known typologies, fresh seed/customers. Should match the Step 2 test numbers; if not, the harness is wrong.",
+      "recall": 0.8581,
+      "precision": 0.532,
+      "far": 0.0224,
+      "auc": 0.98,
+      "pr_auc": 0.6667,
+      "prevalence": 0.0289,
+      "precision_at_train_prevalence": 0.53,
+      "recall_at_matched_far": 0.8422,
+      "rules_recall": 0.7926,
+      "rules_far": 0.0453
+    },
+    "environment_only": {
+      "title": "Legit behaviour shift",
+      "description": "Legit behaviour changes (amounts, hours, volume, contacts, legit bursts and pass-through); scam tactics unchanged (4 known typologies).",
+      "recall": 0.8614,
+      "precision": 0.2745,
+      "far": 0.068,
+      "auc": 0.9539,
+      "pr_auc": 0.2864,
+      "prevalence": 0.029,
+      "precision_at_train_prevalence": 0.2721,
+      "recall_at_matched_far": 0.0003,
+      "rules_recall": 0.8032,
+      "rules_far": 0.1316
+    },
+    "novel_typologies_only": {
+      "title": "5 novel scam typologies",
+      "description": "Training-like legit world, but ONLY the 5 new scam typologies.",
+      "recall": 0.0776,
+      "precision": 0.0945,
+      "far": 0.0228,
+      "auc": 0.5211,
+      "pr_auc": 0.0605,
+      "prevalence": 0.0298,
+      "precision_at_train_prevalence": 0.091,
+      "recall_at_matched_far": 0.0774,
+      "rules_recall": 0.1153,
+      "rules_far": 0.0457
+    },
+    "tactic_evasion": {
+      "title": "Evasion (known scams, adapted)",
+      "description": "Training-like legit world; the 4 known typologies with adapted tactics (smaller amounts, evening not night, slower bursts, delayed refunds).",
+      "recall": 0.4469,
+      "precision": 0.3749,
+      "far": 0.0224,
+      "auc": 0.7923,
+      "pr_auc": 0.3881,
+      "prevalence": 0.0292,
+      "precision_at_train_prevalence": 0.3705,
+      "recall_at_matched_far": 0.4466,
+      "rules_recall": 0.2059,
+      "rules_far": 0.0452
+    },
+    "volume_mix_shift": {
+      "title": "Volume / mix shift",
+      "description": "Legit volume up (heavier users, more merchant/bill traffic, more honest bursts); scam count unchanged so prevalence halves.",
+      "recall": 0.8631,
+      "precision": 0.1526,
+      "far": 0.0709,
+      "auc": 0.9432,
+      "pr_auc": 0.1233,
+      "prevalence": 0.0146,
+      "precision_at_train_prevalence": 0.2643,
+      "recall_at_matched_far": 0.0002,
+      "rules_recall": 0.806,
+      "rules_far": 0.1175
+    },
+    "scam_surge": {
+      "title": "Scam surge (3x volume)",
+      "description": "Campaign surge: same world as control but 3x the scam volume (prevalence up).",
+      "recall": 0.8609,
+      "precision": 0.7572,
+      "far": 0.0242,
+      "auc": 0.9792,
+      "pr_auc": 0.8244,
+      "prevalence": 0.0804,
+      "precision_at_train_prevalence": 0.5125,
+      "recall_at_matched_far": 0.8038,
+      "rules_recall": 0.7975,
+      "rules_far": 0.0479
+    },
+    "external_validation": {
+      "title": "EXTERNAL VALIDATION (all shifts)",
+      "description": "MAIN external set: shifted legit world + 20% known / 80% novel typologies, lower prevalence (1.2%).",
+      "recall": 0.1796,
+      "precision": 0.0317,
+      "far": 0.0677,
+      "auc": 0.5583,
+      "pr_auc": 0.0206,
+      "prevalence": 0.0122,
+      "precision_at_train_prevalence": 0.0726,
+      "recall_at_matched_far": 0.0004,
+      "rules_recall": 0.2024,
+      "rules_far": 0.1312
+    }
+  },
+  "data": "synthetic (separate validation generator, never used for training)"
+}

@@ -1,0 +1,7 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+# Step 3: generated validation data (regenerate with src/generate_validation_data.py)
+data/validation/
+.pytest_cache/

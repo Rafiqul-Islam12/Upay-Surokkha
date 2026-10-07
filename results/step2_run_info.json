@@ -1,0 +1,30 @@
+{
+  "test_transactions": 63252,
+  "test_scam_transactions": 1812,
+  "test_period": [
+    "2026-09-15 13:15:00",
+    "2026-09-29 00:01:00"
+  ],
+  "ml_threshold": 0.30000000000000004,
+  "tiers": {
+    "low": 0.15,
+    "high": 0.3
+  },
+  "false_alarm_cost_bdt": 20,
+  "recovery_rate_if_missed": 0.0,
+  "agent_signal_evidence": {
+    "scam_tx_total": 12225,
+    "scam_tx_that_are_cashout": 0,
+    "scam_tx_with_agent_receiver": 0,
+    "scam_tx_types": {
+      "send": 12225
+    }
+  },
+  "data": "synthetic",
+  "rule_descriptions": {
+    "R1_big_to_new": "New recipient AND amount >= 3x customer's usual",
+    "R2_night_to_new": "New recipient AND time between 00:00-05:59",
+    "R3_rapid_repeat": ">= 3 transactions in 10 minutes",
+    "R4_pass_through": "Money was received <= 15 min ago and is being sent out now"
+  }
+}

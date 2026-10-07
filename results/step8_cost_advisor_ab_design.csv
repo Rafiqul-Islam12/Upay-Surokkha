@@ -1,0 +1,16 @@
+element,design
+Question,"How much do customers really save in fees, and how many small cash-outs really move to digital payments, when they see a Cost Advisor message? No migration rate is assumed: it is an OUTPUT of the pilot."
+Unit of randomisation,"Customer, stratified by Cost Advisor segment (low / regular / frequent) and by area (urban / rural). Use the agent or village as the unit instead if customers share agents and spill-over is likely."
+Eligibility,"Customers with at least 2 cash-outs under the small-cash-out limit in the 8-12 week pre-period, active in the last 30 days, not flagged by ScamShield, with message consent."
+Arms,"Control = no message (true holdout). Treatment = Cost Advisor message. Optional arm B = message plus a small incentive, only if the team wants to price the incentive."
+Allocation,"1:1 random assignment with a fixed seed written down before launch; check balance on pre-period fees, segment and area before launch (A/A check)."
+Duration,At least 8 weeks (two or more salary-week cycles). Do not stop early because an interim result looks good.
+Primary metric,"Net fees paid on cash-outs per customer-month (BDT), treatment minus control, intention-to-treat. Variance reduction with the pre-period value (CUPED) if the correlation is known."
+Secondary metrics,"Migration = share of eligible small cash-out value that moved to digital payments (measured, not assumed); count and value of digital payments; cash-out count."
+Upay-side metric,Net revenue per customer-month: fees on cash-outs + merchant discount earned - incentives. A customer saving is a revenue transfer unless merchant revenue makes up for it.
+Guardrails,"Complaint rate, message opt-outs, total transaction value (must not fall), active-customer rate, cash-out failure rate. Any guardrail breach pauses the arm."
+Analysis,Pre-registered. Difference in means with 95% confidence interval (template in the workbook). Report ITT first; treatment-on-treated only as a supplement.
+Decision rule,"Scale up only if the LOWER bound of the 95% CI of the saving is above the minimum worth acting on AND no guardrail is breached. Scale-up forecasts use the observed migration, never a fixed one."
+Ethics and wording,"Message states a possible saving honestly and is optional advice; no pressure, no hiding of cash-out. Control customers get the message after the pilot if it works."
+Sample size per arm,1063
+Total customers to enrol,2363

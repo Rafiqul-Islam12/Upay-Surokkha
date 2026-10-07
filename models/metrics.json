@@ -1,0 +1,11 @@
+{
+  "threshold": 0.3,
+  "roc_auc": 0.981,
+  "precision": 0.566,
+  "recall": 0.859,
+  "f1": 0.682,
+  "false_alarm_rate": 0.0195,
+  "test_transactions": 63252,
+  "test_scam_transactions": 1812,
+  "data": "synthetic"
+}

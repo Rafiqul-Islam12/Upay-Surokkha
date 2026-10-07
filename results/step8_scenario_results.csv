@@ -1,0 +1,25 @@
+metric,unit,bad,medium,good
+Scam transactions per month,count,1000.0,3000.0,6000.0
+Legitimate transactions per month,count,9999000.0,9997000.0,9994000.0
+Total scam loss before ScamShield,BDT,3000000.0,18000000.0,60000000.0
+Literal formula: transactions x rate x loss x recall,BDT,540000.0,8046000.0,51540000.0
+Prevented loss (x intervention success),BDT,270000.0,5632200.0,43809000.0
+Scams flagged (true positives),count,180.0,1341.0,5154.0
+Scams missed,count,820.0,1659.0,846.0
+False alarms,count,676932.3,223932.8,194883.0
+Total flags,count,677112.3,225273.8,200037.0
+Precision at real prevalence,fraction,0.000266,0.005953,0.025765
+Cases reviewed by analysts,count,677112.3,225273.8,200037.0
+Analysts needed,FTE,591.881381,131.278438,87.428759
+False-alarm cost (notification + support),BDT,2944655.505,414275.68,214371.3
+Analyst time cost,BDT,26634662.15035,4594745.337995,2622862.762238
+Customer-friction cost,BDT,2166183.36,156752.96,44823.09
+Run cost,BDT,800000,500000,350000
+Net monthly benefit,BDT,-32275501.01535,-33573.977995,40576942.847762
+One-time cost,BDT,20000000,12000000,8000000
+Payback,months,,,0.197156
+ROI over horizon,fraction,-20.365301,-1.033574,59.865414
+Cumulative net over horizon after one-time cost,BDT,-407306012.184196,-12402887.735944,478923314.173147
+All-in cost of one false alarm,BDT,46.885664,22.94627,14.441888
+Break-even false-alarm rate,fraction,,0.022254,0.300636
+Break-even scam rate,fraction,0.012229,0.000302,4.3e-05
